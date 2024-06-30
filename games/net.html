@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<img src="https://uildstudio.github.io/img/logo.png"
+     width="176"
+     height="80" />
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="varbar.css"/> <!-- 调用css -->
+<title>Uild</title>
+</head>
+  <div class="menu">  <!-- class选择器 -->
+    <div class="nav">
+        <ul>    <!-- ul标签 -->
+            <li><a href="https://uildstudio.github.io/index.html">首页</a></li>
+	   <li><a href="https://uildstudio.github.io/uw.html">UildWork</a></li>
+          <li><a href="https://uildstudio.github.io/ss.html">Swallow</a></li>
+          <li><a href="https://uildstudio.github.io/help.html">帮助</a></li>
+        </ul>
+    </div>
+  </div>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="plugin/layui/css/layui.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script>
+        var articleId=30;
+    </script>
+</head>
+<h1><br></h1>
+<li><h1>网站模板0630（CZ工作室独家赞助）</h1></li>
+<h1><a href="https://pan.baidu.re/down.php/071c6b86c6e5c40cb9387cd06604edc0.rar" target="_blank">点击下载</a></h1>
+
+<script src="plugin/layui/layui.js"></script>
+<script>
+    layui.use('laypage', function(){
+        var laypage = layui.laypage;
+
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'pageItem', //注意，这里的 test1 是 ID，不用加 # 号
+            count: 50, //数据总数，从服务端得到
+            jump: function(obj, first){
+                //obj包含了当前分页的所有参数，比如：
+                console.log('当前页数：'+obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                console.log('每页数量：'+obj.limit); //得到每页显示的条数
+                //首次不执行
+                if(!first){
+                   console.log('执行')
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
