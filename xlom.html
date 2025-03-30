@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store Xlom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f7;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .status-bar {
+            height: 20px;
+            background-color: #fff;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #000;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4A90E2, #2F80ED);
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+
+        .app-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .download-button {
+            background: linear-gradient(180deg, #0A84FF, #0066CC);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .download-button:active {
+            opacity: 0.8;
+        }
+
+        .version-info {
+            color: #86868b;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+
+        .update-log {
+            color: #1d1d1f;
+            margin: 20px 0;
+        }
+
+        .screenshots {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+        }
+
+        .screenshot {
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-info {
+            color: #86868b;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-bar">
+        <span>欢迎</span>
+        <span>UildStudio</span>
+    </div>
+
+    <div class="app-card">
+        <div class="app-header">
+            <div class="app-icon"></div>
+            <div>
+                <h1 class="app-title">Photo Editor Pro</h1>
+                <p class="version-info">版本 A328 • 64 KB</p>
+            </div>
+        </div>
+
+	<script>
+	function directDownload() {
+	    // 替换你的真实下载地址
+	    const link = document.createElement('a');
+	    link.href = 'https://uildstudio.github.io/software/XlomSafeA328.sprite3';
+	    link.download = 'XlomSafeA328.sprite3';
+	    link.style.display = 'none';
+	    document.body.appendChild(link);
+	    link.click();
+	    document.body.removeChild(link);
+	}
+	</script>
+	<button class="download-button" onclick="directDownload()">获取</button>
+
+        <div class="update-log">
+            <h3>更新内容</h3>
+            <p>• 自动提示病毒信息<br>
+               • 优化修复性能<br>
+               • 第一个版本哦！</p>
+        </div>
+
+        <div class="developer-info">
+            <p>UildStudio_Xlom</p>
+            <p>需要 COLID OS 2.0 或更高版本</p>
+        </div>
+    </div>
+</body>
+</html>
