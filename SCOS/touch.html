@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>ScratchOS资源下载站</title>
+    <style>
+        /* 重置样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* 头部样式 */
+        .header {
+            background: #0072c6;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        /* 主体布局 */
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* 左侧导航 */
+        .sidebar {
+            width: 280px;
+            background: #fff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .nav-tree {
+            list-style: none;
+        }
+
+        .nav-tree li {
+            margin: 5px 0;
+        }
+
+        .nav-tree a {
+            color: #333;
+            text-decoration: none;
+            padding: 5px;
+            display: block;
+            border-radius: 3px;
+        }
+
+        .nav-tree a:hover {
+            background: #e3f1ff;
+        }
+
+        .nav-tree .category {
+            font-weight: bold;
+            color: #0072c6;
+            margin-top: 15px;
+        }
+
+        /* 内容区域 */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+        }
+
+        /* 资源列表 */
+        .resource-list {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .resource-list th {
+            background: #f5f5f5;
+            text-align: left;
+            padding: 12px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .resource-list td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .download-btn {
+            background: #0072c6;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            background: #005da4;
+        }
+
+        /* 底部样式 */
+        .footer {
+            background: #0072c6;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>技术资源下载中心</h1>
+        <div class="search-box">
+            <input type="text" placeholder="搜索资源..." style="padding: 5px; width: 200px;">
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="nav-tree">
+                <li class="category">操作系统</li>
+                <li><a href="index.html">PC系统</a></li>
+                <li><a href="touch.html">触屏式系统</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h2>最新资源</h2>
+            <table class="resource-list">
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>描述</th>
+                        <th>大小</th>
+                        <th>下载</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arc OS 3.0</td>
+                        <td>由COLID OS改编而来的新手机操作系统</td>
+                        <td>924 KB</td>
+                        <td><a href="/SCOS/system/ARCOS3.sb3" class="download-btn">下载</a></td>
+                    </tr>
+                    <tr>
+                        <td>HCUI Pad v1.2</td>
+                        <td>流畅美观的平板操作系统，由摄表打造</td>
+                        <td>251 KB</td>
+                        <td><a href="/SCOS/system/HCUIPad.sb3" class="download-btn">下载</a></td>
+                    </tr>
+                    <tr>
+                        <td>AstraOS Alpha</td>
+                        <td>一个不伦不类的操作系统示例</td>
+                        <td>6.01 MB</td>
+                        <td><a href="/SCOS/system/AstraOS.sb3" class="download-btn">下载</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 ScratchOS资源下载站 - 遵循知识共享协议</p>
+    </footer>
+
+    <script>
+        // 简单的交互脚本
+        document.querySelectorAll('.category').forEach(item => {
+            item.addEventListener('click', () => {
+                let ul = item.nextElementSibling;
+                while(ul && ul.tagName === 'LI') {
+                    ul = ul.nextElementSibling;
+                }
+                if(ul && ul.tagName === 'UL') {
+                    ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+        });
+
+        // 搜索功能
+        document.querySelector('input[type="text"]').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.resource-list tbody tr').forEach(row => {
+                const text = row.children[0].textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
